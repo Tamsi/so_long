@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tbesson <tbesson@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tamsi <tamsi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 11:23:20 by tbesson           #+#    #+#             */
-/*   Updated: 2022/09/01 13:52:08 by tbesson          ###   ########.fr       */
+/*   Updated: 2022/08/28 02:02:41 by tamsi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef struct s_list
 	struct s_list	*next;
 }	t_list;
 
+char			*ft_strappend(char **s1, const char *s2);
 char			*get_next_line(int fd);
 void			ft_putchar(char c);
 void			ft_putnbr(int nb);

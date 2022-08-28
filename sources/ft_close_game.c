@@ -3,18 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_close_game.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tbesson <tbesson@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tamsi <tamsi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 03:55:19 by tamsi             #+#    #+#             */
-/*   Updated: 2022/09/01 16:13:11 by tbesson          ###   ########.fr       */
+/*   Updated: 2022/08/28 01:46:50 by tamsi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-int	ft_victory(t_game *game);
-int	ft_close_game(t_game *game);
-int	ft_error_msg(char *message, t_game *game);
 
 int	ft_victory(t_game *game)
 {

@@ -6,31 +6,13 @@
 /*   By: tamsi <tamsi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 04:13:06 by tamsi             #+#    #+#             */
-/*   Updated: 2022/08/27 23:49:08 by tamsi            ###   ########.fr       */
+/*   Updated: 2022/08/28 01:48:22 by tamsi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int		ft_handle_input(int keysym, t_game *game);
-void	ft_player_move(t_game *game, int x, int y, int player_sprite);
-
-int	ft_handle_input(int keysym, t_game *game)
-{
-	if (keysym == KEY_UP || keysym == KEY_W)
-		ft_player_move(game, game->map.player.y - 1, game->map.player.x, BACK);
-	if (keysym == KEY_LEFT || keysym == KEY_A)
-		ft_player_move(game, game->map.player.y, game->map.player.x - 1, LEFT);
-	if (keysym == KEY_RIGHT || keysym == KEY_D)
-		ft_player_move(game, game->map.player.y, game->map.player.x + 1, RIGHT);
-	if (keysym == KEY_DOWN || keysym == KEY_S)
-		ft_player_move(game, game->map.player.y + 1, game->map.player.x, FRONT);
-	if (keysym == KEY_Q || keysym == KEY_ESC)
-		ft_close_game(game);
-	return (0);
-}
-
-void	ft_player_move(t_game *game, int new_y, int new_x, int player_sprite)
+static void	ft_player_move(t_game *game, int new_y, int new_x, int player_sprite)
 {
 	int	last_x;
 	int	last_y;
@@ -52,4 +34,19 @@ void	ft_player_move(t_game *game, int new_y, int new_x, int player_sprite)
 		game->movements++;
 		ft_render_map(game);
 	}
+}
+
+int	ft_handle_input(int keysym, t_game *game)
+{
+	if (keysym == KEY_UP || keysym == KEY_W)
+		ft_player_move(game, game->map.player.y - 1, game->map.player.x, BACK);
+	if (keysym == KEY_LEFT || keysym == KEY_A)
+		ft_player_move(game, game->map.player.y, game->map.player.x - 1, LEFT);
+	if (keysym == KEY_RIGHT || keysym == KEY_D)
+		ft_player_move(game, game->map.player.y, game->map.player.x + 1, RIGHT);
+	if (keysym == KEY_DOWN || keysym == KEY_S)
+		ft_player_move(game, game->map.player.y + 1, game->map.player.x, FRONT);
+	if (keysym == KEY_Q || keysym == KEY_ESC)
+		ft_close_game(game);
+	return (0);
 }

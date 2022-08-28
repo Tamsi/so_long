@@ -3,18 +3,46 @@
 /*                                                        :::      ::::::::   */
 /*   ft_init_map.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tbesson <tbesson@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tamsi <tamsi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 04:02:23 by tamsi             #+#    #+#             */
-/*   Updated: 2022/09/01 14:01:44 by tbesson          ###   ########.fr       */
+/*   Updated: 2022/08/28 01:55:15 by tamsi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	ft_check_command_line_arguments(int argc, char **argv, t_game *game);
-void	ft_init_map(t_game *game, char *argv);
-void	ft_check_for_empty_line(char *map, t_game *game);
+static void	ft_check_for_empty_line(char *map, t_game *game)
+{
+	int	i;
+
+	i = 0;
+	if (game->map.rows == 0)
+		ft_error_msg("Invalid map.\
+The map is empty.", game);
+	if (map[0] == '\n')
+	{
+		free(map);
+		ft_error_msg("Invalid map.\
+The map have an empty line right at the beginning.", game);
+	}
+	else if (map[ft_strlen(map) - 2] == '\n')
+	{
+		free (map);
+		ft_error_msg("Invalid map. \
+The map have an empty line at the end.", game);
+	}
+	while (map[i + 1])
+	{
+		if (map[i] == '\n' && map[i + 1] == '\n')
+		{
+			free(map);
+			ft_error_msg("Invalid map. \
+The map have an empty line at the middle.", game);
+		}
+		i++;
+	}
+}
 
 void	ft_check_command_line_arguments(int argc, char **argv, t_game *game)
 {
@@ -55,36 +83,4 @@ void	ft_init_map(t_game *game, char *argv)
 	game->map.full = ft_split(map_temp, '\n');
 	game->map_alloc = true;
 	free(map_temp);
-}
-
-void	ft_check_for_empty_line(char *map, t_game *game)
-{
-	int	i;
-
-	i = 0;
-	if (game->map.rows == 0)
-		ft_error_msg("Invalid map.\
-The map is empty.", game);
-	if (map[0] == '\n')
-	{
-		free(map);
-		ft_error_msg("Invalid map.\
-The map have an empty line right at the beginning.", game);
-	}
-	else if (map[ft_strlen(map) - 2] == '\n')
-	{
-		free (map);
-		ft_error_msg("Invalid map. \
-The map have an empty line at the end.", game);
-	}
-	while (map[i + 1])
-	{
-		if (map[i] == '\n' && map[i + 1] == '\n')
-		{
-			free(map);
-			ft_error_msg("Invalid map. \
-The map have an empty line at the middle.", game);
-		}
-		i++;
-	}
 }

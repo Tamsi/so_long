@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tbesson <tbesson@student.42.fr>            +#+  +:+       +#+         #
+#    By: tamsi <tamsi@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/13 19:29:13 by tbesson           #+#    #+#              #
-#    Updated: 2022/09/01 16:02:26 by tbesson          ###   ########.fr        #
+#    Updated: 2022/08/28 02:02:58 by tamsi            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,8 +18,7 @@ SRCS_NAME	= so_long.c		\
 			ft_handle_input.c	\
 			ft_init_game.c		\
 			ft_init_map.c		\
-			ft_render_map.c		\
-			ft_utils.c
+			ft_render_map.c
 OBJS_DIR	= objs
 OBJS_NAME	= ${SRCS_NAME:.c=.o}
 SRCS		= $(addprefix $(SRCS_DIR)/,$(SRCS_NAME))

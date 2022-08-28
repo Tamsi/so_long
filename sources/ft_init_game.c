@@ -3,19 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   ft_init_game.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tbesson <tbesson@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tamsi <tamsi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 04:07:53 by tamsi             #+#    #+#             */
-/*   Updated: 2022/09/03 14:34:16 by tbesson          ###   ########.fr       */
+/*   Updated: 2022/08/28 01:53:12 by tamsi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	ft_init_vars(t_game *game);
-void	ft_init_mlx(t_game *game);
-void	ft_init_sprites(t_game *game);
-t_image	ft_new_sprite(void *mlx, char *path, t_game *game);
+static t_image	ft_new_sprite(void *mlx, char *path, t_game *game)
+{
+	t_image	sprite;
+
+	sprite.xpm_ptr = mlx_xpm_file_to_image(mlx, path, &sprite.x, &sprite.y);
+	if (sprite.xpm_ptr == NULL)
+		ft_error_msg("Couldn't find a sprite. Does it exist?", game);
+	return (sprite);
+}
 
 void	ft_init_vars(t_game *game)
 {
@@ -55,14 +60,4 @@ void	ft_init_sprites(t_game *game)
 	game->player_back = ft_new_sprite(mlx, PLAYER_BACK_XPM, game);
 	game->open_exit = ft_new_sprite(mlx, OPEN_EXIT_XPM, game);
 	game->exit_closed = ft_new_sprite(mlx, EXIT_CLOSED_XPM, game);
-}
-
-t_image	ft_new_sprite(void *mlx, char *path, t_game *game)
-{
-	t_image	sprite;
-
-	sprite.xpm_ptr = mlx_xpm_file_to_image(mlx, path, &sprite.x, &sprite.y);
-	if (sprite.xpm_ptr == NULL)
-		ft_error_msg("Couldn't find a sprite. Does it exist?", game);
-	return (sprite);
 }
