@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_render_map.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tamsi <tamsi@student.42.fr>                +#+  +:+       +#+        */
+/*   By: tbesson <tbesson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 03:49:13 by tamsi             #+#    #+#             */
-/*   Updated: 2022/08/27 23:49:08 by tamsi            ###   ########.fr       */
+/*   Updated: 2022/09/01 16:17:10 by tbesson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,8 +84,10 @@ void	ft_print_movements(t_game *game)
 	char	*phrase;
 
 	movements = ft_itoa(game->movements);
-	phrase = ft_strjoin("Movements : ", movements);
-	mlx_string_put(game->mlx_ptr, game->win_ptr, 40, 20, 99999, phrase);
+	phrase = ft_strjoin("Movements: ", movements);
+	mlx_string_put(game->mlx_ptr, game->win_ptr, 5, 15, 0x00FF0000, phrase);
+	if (game->movements > 0)
+		ft_printf("%s\n", phrase);
 	free(movements);
 	free(phrase);
 }

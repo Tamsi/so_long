@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tamsi <tamsi@student.42.fr>                +#+  +:+       +#+         #
+#    By: tbesson <tbesson@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/13 19:29:13 by tbesson           #+#    #+#              #
-#    Updated: 2022/08/27 22:35:06 by tamsi            ###   ########.fr        #
+#    Updated: 2022/09/01 16:02:26 by tbesson          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,8 +33,7 @@ NAME	= so_long
 
 CC		= gcc
 RM		= rm -f
-# -Wall -Wextra -Werror
-CFLAGS	= $(INC)
+CFLAGS	= -Wall -Wextra -Werror -fsanitize=address -g $(INC)
 
 all:		$(MLX) $(LFT) $(NAME)
 

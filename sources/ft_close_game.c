@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_close_game.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tamsi <tamsi@student.42.fr>                +#+  +:+       +#+        */
+/*   By: tbesson <tbesson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 03:55:19 by tamsi             #+#    #+#             */
-/*   Updated: 2022/08/28 01:40:29 by tamsi            ###   ########.fr       */
+/*   Updated: 2022/09/01 16:13:11 by tbesson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,17 @@ int	ft_error_msg(char *message, t_game *game);
 
 int	ft_victory(t_game *game)
 {
-	ft_printf(CYAN"\n			Movements: %d\n"RESET, ++game->movements);
+	ft_printf(YELLOW"\nMovements: %d\n"RESET, ++game->movements);
 	ft_free_all_allocated_memory(game);
-	ft_printf(GREEN"\n			YOU WIN !\n"RESET);
+	ft_printf(GREEN"\nYOU WIN !\n"RESET);
 	exit (EXIT_FAILURE);
 }
 
 int	ft_close_game(t_game *game)
 {
-	ft_printf(CYAN"Movements: %d\n"RESET, game->movements);
+	ft_printf(YELLOW"Movements: %d\n"RESET, game->movements);
 	ft_free_all_allocated_memory(game);
-	ft_printf(GREY"CLOSED\n"RESET);
+	ft_printf("CLOSED\n");
 	exit (EXIT_FAILURE);
 }
 
@@ -37,6 +37,6 @@ int	ft_error_msg(char *message, t_game *game)
 	if (game->map_alloc == true)
 		ft_free_map(game);
 	free(game);
-	ft_printf(RED"Error\n"GREY"%s\n"RESET, message);
+	ft_printf(RED"Error\n"RESET"%s\n", message);
 	exit (EXIT_FAILURE);
 }

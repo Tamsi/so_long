@@ -3,30 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tamsi <tamsi@student.42.fr>                +#+  +:+       +#+        */
+/*   By: tbesson <tbesson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 03:43:34 by tamsi             #+#    #+#             */
-/*   Updated: 2022/08/27 23:49:08 by tamsi            ###   ########.fr       */
+/*   Updated: 2022/09/01 14:53:44 by tbesson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	ft_check_map(t_game *game);
-void	ft_check_rows(t_game *game);
-void	ft_check_columns(t_game *game);
-void	ft_count_map_parameters(t_game *game);
-void	ft_verify_map_parameters(t_game *game);
-
-void	ft_check_map(t_game *game)
-{
-	ft_check_rows(game);
-	ft_check_columns(game);
-	ft_count_map_parameters(game);
-	ft_verify_map_parameters(game);
-}
-
-void	ft_check_rows(t_game *game)
+static void	ft_check_rows(t_game *game)
 {
 	int	i;
 
@@ -47,7 +33,7 @@ The Map must be surrounded by walls!.", game);
 	}
 }
 
-void	ft_check_columns(t_game *game)
+static void	ft_check_columns(t_game *game)
 {
 	int	i;
 
@@ -66,7 +52,7 @@ The Map must be surrounded by walls!.", game);
 	}
 }
 
-void	ft_count_map_parameters(t_game *game)
+static void	ft_count_map_parameters(t_game *game)
 {
 	int	x;
 	int	y;
@@ -95,7 +81,7 @@ void	ft_count_map_parameters(t_game *game)
 	}
 }
 
-void	ft_verify_map_parameters(t_game *game)
+static void	ft_verify_map_parameters(t_game *game)
 {
 	if (game->map.coins == 0)
 		ft_error_msg("Invalid Map. There are no Coins!", game);
@@ -104,4 +90,12 @@ void	ft_verify_map_parameters(t_game *game)
 	else if (game->map.players != 1)
 		ft_error_msg("Invalid Map. Invalid Player quantity. \
 It's a single player game.", game);
+}
+
+void	ft_check_map(t_game *game)
+{
+	ft_check_rows(game);
+	ft_check_columns(game);
+	ft_count_map_parameters(game);
+	ft_verify_map_parameters(game);
 }

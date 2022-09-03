@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tamsi <tamsi@student.42.fr>                +#+  +:+       +#+        */
+/*   By: tbesson <tbesson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 06:08:02 by tamsi             #+#    #+#             */
-/*   Updated: 2022/08/27 23:49:08 by tamsi            ###   ########.fr       */
+/*   Updated: 2022/09/01 13:47:31 by tbesson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int main(int argc, char	**argv)
+int	main(int argc, char	**argv)
 {
 	t_game	*game;
 

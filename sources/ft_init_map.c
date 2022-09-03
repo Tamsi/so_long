@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_init_map.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tamsi <tamsi@student.42.fr>                +#+  +:+       +#+        */
+/*   By: tbesson <tbesson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 04:02:23 by tamsi             #+#    #+#             */
-/*   Updated: 2022/08/27 23:49:08 by tamsi            ###   ########.fr       */
+/*   Updated: 2022/09/01 14:01:44 by tbesson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,9 @@ void	ft_check_for_empty_line(char *map, t_game *game)
 	int	i;
 
 	i = 0;
+	if (game->map.rows == 0)
+		ft_error_msg("Invalid map.\
+The map is empty.", game);
 	if (map[0] == '\n')
 	{
 		free(map);
@@ -85,4 +88,3 @@ The map have an empty line at the middle.", game);
 		i++;
 	}
 }
-
