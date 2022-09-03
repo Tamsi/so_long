@@ -6,7 +6,7 @@
 /*   By: tbesson <tbesson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 04:39:10 by tamsi             #+#    #+#             */
-/*   Updated: 2022/09/01 15:04:44 by tbesson          ###   ########.fr       */
+/*   Updated: 2022/09/03 14:34:16 by tbesson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@
 
 # define WALL_XPM			"assets/sprites/wall.xpm"
 # define FLOOR_XPM			"assets/sprites/floor.xpm"
-# define COINS_XPM			"assets/sprites/coin-bag.xpm"
+# define CHEST_XPM			"assets/sprites/chest.xpm"
 # define PLAYER_FRONT_XPM	"assets/sprites/player/front.xpm"
 # define PLAYER_LEFT_XPM	"assets/sprites/player/left.xpm"
 # define PLAYER_RIGHT_XPM	"assets/sprites/player/right.xpm"

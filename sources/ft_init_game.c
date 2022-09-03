@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_init_game.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tamsi <tamsi@student.42.fr>                +#+  +:+       +#+        */
+/*   By: tbesson <tbesson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 04:07:53 by tamsi             #+#    #+#             */
-/*   Updated: 2022/08/27 23:49:08 by tamsi            ###   ########.fr       */
+/*   Updated: 2022/09/03 14:34:16 by tbesson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	ft_init_sprites(t_game *game)
 	mlx = game->mlx_ptr;
 	game->wall = ft_new_sprite(mlx, WALL_XPM, game);
 	game->floor = ft_new_sprite(mlx, FLOOR_XPM, game);
-	game->coins = ft_new_sprite(mlx, COINS_XPM, game);
+	game->coins = ft_new_sprite(mlx, CHEST_XPM, game);
 	game->player_front = ft_new_sprite(mlx, PLAYER_FRONT_XPM, game);
 	game->player_left = ft_new_sprite(mlx, PLAYER_LEFT_XPM, game);
 	game->player_right = ft_new_sprite(mlx, PLAYER_RIGHT_XPM, game);
