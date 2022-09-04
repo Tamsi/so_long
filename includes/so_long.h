@@ -6,7 +6,7 @@
 /*   By: tamsi <tamsi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 04:39:10 by tamsi             #+#    #+#             */
-/*   Updated: 2022/08/28 02:02:29 by tamsi            ###   ########.fr       */
+/*   Updated: 2022/09/04 11:31:52 by tamsi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,24 +111,16 @@ typedef struct s_game
 
 void	ft_check_command_line_arguments(int argc, char **argv, t_game *game);
 void	ft_init_map(t_game *game, char *argv);
-// void	ft_check_for_empty_line(char *map, t_game *game);
 void	ft_init_vars(t_game *game);
 void	ft_check_map(t_game *game);
 void	ft_init_mlx(t_game *game);
 void	ft_init_sprites(t_game *game);
-// t_image	ft_new_sprite(void *mlx, char *path, t_game *game);
 int		ft_render_map(t_game *game);
-// void	ft_identify_sprite(t_game *game, int x, int y);
-// void	ft_render_player(t_game *game, int x, int y);
-// void	ft_render_sprite(t_game *game, t_image sprite, int column, int line);
-// void	ft_print_movements(t_game *game);
 int		ft_handle_input(int keysym, t_game *game);
-// void	ft_player_move(t_game *game, int x, int y, int player_sprite);
 int		ft_victory(t_game *game);
 int		ft_error_msg(char *message, t_game *game);
 int		ft_close_game(t_game *game);
 void	ft_free_all_allocated_memory(t_game *game);
-// void	ft_destroy_images(t_game *game);
 void	ft_free_map(t_game *game);
 
 #endif
