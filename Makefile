@@ -6,19 +6,22 @@
 #    By: tamsi <tamsi@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/13 19:29:13 by tbesson           #+#    #+#              #
-#    Updated: 2022/08/28 02:02:58 by tamsi            ###   ########.fr        #
+#    Updated: 2022/09/05 19:42:51 by tamsi            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS_DIR	= sources
-SRCS_NAME	= so_long.c		\
+SRCS_NAME	= so_long.c			\
 			ft_check_map.c		\
 			ft_close_game.c		\
 			ft_free_memory.c	\
 			ft_handle_input.c	\
 			ft_init_game.c		\
 			ft_init_map.c		\
-			ft_render_map.c
+			ft_render_map.c		\
+			check_path_exit.c	\
+			check_path_coins.c	\
+			check_path_utils.c
 OBJS_DIR	= objs
 OBJS_NAME	= ${SRCS_NAME:.c=.o}
 SRCS		= $(addprefix $(SRCS_DIR)/,$(SRCS_NAME))

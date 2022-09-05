@@ -6,7 +6,7 @@
 /*   By: tamsi <tamsi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 04:39:10 by tamsi             #+#    #+#             */
-/*   Updated: 2022/09/04 11:31:52 by tamsi            ###   ########.fr       */
+/*   Updated: 2022/09/05 19:35:56 by tamsi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,11 @@ typedef struct s_game
 	t_image		player_back;
 }	t_game;
 
+int 	is_safe(int i, int j, t_map map);
+int		**create_visited(t_map map);
+void	free_visited(int **visited, t_map map);
+int		search_path_coins(t_game *game);
+int		search_path_exit(t_game *game);
 void	ft_check_command_line_arguments(int argc, char **argv, t_game *game);
 void	ft_init_map(t_game *game, char *argv);
 void	ft_init_vars(t_game *game);

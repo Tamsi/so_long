@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tbesson <tbesson@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tamsi <tamsi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 06:08:02 by tamsi             #+#    #+#             */
-/*   Updated: 2022/09/01 13:47:31 by tbesson          ###   ########.fr       */
+/*   Updated: 2022/09/05 19:42:25 by tamsi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,10 @@ int	main(int argc, char	**argv)
 	ft_init_map(game, argv[1]);
 	ft_init_vars(game);
 	ft_check_map(game);
+	if (!search_path_coins(game))
+		ft_error_msg("Invalid Map. Player cannot access to all coins.", game);
+	if (!search_path_exit(game))
+		ft_error_msg("Invalid Map. Player cannot access to exit.", game);
 	ft_init_mlx(game);
 	ft_init_sprites(game);
 	ft_render_map(game);
