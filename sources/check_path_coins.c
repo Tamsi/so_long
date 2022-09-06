@@ -6,7 +6,7 @@
 /*   By: tbesson <tbesson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 19:16:37 by tamsi             #+#    #+#             */
-/*   Updated: 2022/09/06 16:20:13 by tbesson          ###   ########.fr       */
+/*   Updated: 2022/09/06 17:12:57 by tbesson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static int	check_coins(t_map map, int i, int j, int **visited)
 	if (is_safe(i, j, map) && map.full[i][j] != '1' && !visited[i][j])
 	{
 		visited[i][j] = 1;
-		if (map.coins == 1)
+		if (map.coins == 0)
 			return (1);
 		if (map.full[i][j] == 'C')
 		{
