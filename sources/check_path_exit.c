@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   check_path_exit.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tamsi <tamsi@student.42.fr>                +#+  +:+       +#+        */
+/*   By: tbesson <tbesson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 11:44:37 by tamsi             #+#    #+#             */
-/*   Updated: 2022/09/05 19:39:43 by tamsi            ###   ########.fr       */
+/*   Updated: 2022/09/06 16:09:25 by tbesson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static int check_path(t_map map, int i, int j, int **visited)
+static int	check_path(t_map map, int i, int j, int **visited)
 {
 	int	up;
 	int	left;
@@ -49,21 +49,21 @@ int	search_path_exit(t_game *game)
 
 	visited = create_visited(game->map);
 	flag = 0;
-	i = 0;
-	while (i < game->map.rows)
+	i = -1;
+	while (++i < game->map.rows)
 	{
-		j = 0;
-		while (j < game->map.columns)
+		j = -1;
+		while (++j < game->map.columns)
 		{
 			if (game->map.full[i][j] == 'P' && visited[i][j] == 0)
+			{
 				if (check_path(game->map, i, j, visited))
 				{
 					flag = 1;
-					break;
+					break ;
 				}
-			j++;
+			}
 		}
-		i++;
 	}
 	free_visited(visited, game->map);
 	return (flag);

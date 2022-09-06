@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   check_path_utils.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tamsi <tamsi@student.42.fr>                +#+  +:+       +#+        */
+/*   By: tbesson <tbesson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 19:39:28 by tamsi             #+#    #+#             */
-/*   Updated: 2022/09/05 19:41:07 by tamsi            ###   ########.fr       */
+/*   Updated: 2022/09/06 16:07:54 by tbesson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int is_safe(int i, int j, t_map map)
+int	is_safe(int i, int j, t_map map)
 {
 	if (i >= 1 && i < map.rows && j >= 1 && j < map.columns)
 		return (1);
