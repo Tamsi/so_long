@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_path_coins.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tamsi <tamsi@student.42.fr>                +#+  +:+       +#+        */
+/*   By: tbesson <tbesson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 19:16:37 by tamsi             #+#    #+#             */
-/*   Updated: 2022/09/05 19:38:10 by tamsi            ###   ########.fr       */
+/*   Updated: 2022/09/06 16:20:13 by tbesson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,8 @@ static void	ft_free_new_map(t_map map)
 	free(map.full);
 }
 
-static int check_coins(t_map map, int i, int j, int **visited)
+static int	check_coins(t_map map, int i, int j, int **visited)
 {
-	int	up;
-	int	left;
-	int	down;
-	int	right;
-
 	if (is_safe(i, j, map) && map.full[i][j] != '1' && !visited[i][j])
 	{
 		visited[i][j] = 1;
@@ -54,49 +49,53 @@ static int check_coins(t_map map, int i, int j, int **visited)
 			map.full[i][j] = '0';
 			map.coins--;
 		}
-		up = check_coins(map, i - 1, j, visited);
-		if (up)
+		if (check_coins(map, i - 1, j, visited))
 			return (1);
-		left = check_coins(map, i, j - 1, visited);
-		if (left)
+		if (check_coins(map, i, j - 1, visited))
 			return (1);
-		down = check_coins(map, i + 1, j, visited);
-		if (down)
+		if (check_coins(map, i + 1, j, visited))
 			return (1);
-		right = check_coins(map, i, j + 1, visited);
-		if (right)
+		if (check_coins(map, i, j + 1, visited))
 			return (1);
 	}
 	return (0);
+}
+
+static int	parse_map(t_map new_map, int **visited)
+{
+	int		i;
+	int		j;
+	int		flag;
+
+	flag = 0;
+	i = -1;
+	while (++i < new_map.rows)
+	{
+		j = -1;
+		while (++j < new_map.columns)
+		{
+			if (new_map.full[i][j] == 'P' && visited[i][j] == 0)
+			{
+				if (check_coins(new_map, i, j, visited))
+				{
+					flag = 1;
+					break ;
+				}
+			}
+		}
+	}
+	return (flag);
 }
 
 int	search_path_coins(t_game *game)
 {
 	int		**visited;
 	t_map	new_map;
-	int		i;
-	int		j;
 	int		flag;
 
 	visited = create_visited(game->map);
 	new_map = create_new_map(game->map);
-	i = 0;
-	flag = 0;
-	while (i < new_map.rows)
-	{
-		j = 0;
-		while (j < new_map.columns)
-		{
-			if (new_map.full[i][j] == 'P' && visited[i][j] == 0)
-				if (check_coins(new_map, i, j, visited))
-				{
-					flag = 1;
-					break;
-				}
-			j++;
-		}
-		i++;
-	}
+	flag = parse_map(new_map, visited);
 	ft_free_new_map(new_map);
 	free_visited(visited, game->map);
 	return (flag);
