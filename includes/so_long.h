@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tamsi <tamsi@student.42.fr>                +#+  +:+       +#+        */
+/*   By: tbesson <tbesson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 04:39:10 by tamsi             #+#    #+#             */
-/*   Updated: 2022/09/05 19:35:56 by tamsi            ###   ########.fr       */
+/*   Updated: 2022/09/06 16:37:02 by tbesson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,7 @@ typedef struct s_game
 	t_image		player_back;
 }	t_game;
 
-int 	is_safe(int i, int j, t_map map);
+int		is_safe(int i, int j, t_map map);
 int		**create_visited(t_map map);
 void	free_visited(int **visited, t_map map);
 int		search_path_coins(t_game *game);
